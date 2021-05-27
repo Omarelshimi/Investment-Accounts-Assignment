@@ -107,7 +107,8 @@ function investmentStats() {
   }
   let average = total / accounts.length;
 
-  outputEl.innerHTML = "Investment Stats:" + " " + "Minimum account amout:" + " " + min + "$" + " " + "Maximum account amount:" + " " + max + "$" + average;
+  outputEl.innerHTML = "Investment Stats:" + " " + "Minimum account amout:" + " " + "$" + min + " " + 
+  "Maximum account amount:" + " " + "$" + max + " " + "Average:" + " " + "$" + average;
 }
 
 function addAccount() {
@@ -115,8 +116,8 @@ function addAccount() {
   // array. Output a confirmation that a new account was added with an
   // opening amount of _______.
   let val = +prompt();
-  let value = accounts.push(val);
-  outputEl.innerHTML = "confirmation that a new account was added with an opening amount of:" + " " + value + "$"; 
+  accounts.push(val);
+  outputEl.innerHTML = "confirmation that a new account was added with an opening amount of:" + " " + val + "$";
 }
 
 function removeLow() {
