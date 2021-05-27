@@ -107,8 +107,8 @@ function investmentStats() {
   }
   let average = total / accounts.length;
 
-  outputEl.innerHTML = "Investment Stats:" + " " + "Minimum account amout:" + " " + "$" + min + " " + 
-  "Maximum account amount:" + " " + "$" + max + " " + "Average:" + " " + "$" + average;
+  outputEl.innerHTML = "Investment Stats:" + " " + "Minimum account amout:" + " " + "$" + min + " " +
+    "Maximum account amount:" + " " + "$" + max + " " + "Average:" + " " + "$" + average;
 }
 
 function addAccount() {
@@ -116,15 +116,24 @@ function addAccount() {
   // array. Output a confirmation that a new account was added with an
   // opening amount of _______.
   let val = +prompt();
-  accounts.push(val);
-  outputEl.innerHTML = "confirmation that a new account was added with an opening amount of:" + " " + val + "$";
+  if (val >= 0 && val <= 5000) {
+    accounts.push(val);
+    outputEl.innerHTML = "Confirmation that a new account was added with an opening amount of:" + " " + val + "$";
+  } else {
+    outputEl.innerHTML = "Not a valid input, Insert an amount between $0 and $5000 please."
+  }
 }
-
 function removeLow() {
   // Remove all accounts that are below $500.
   // Output how many accounts were removed.
-
-  outputEl.innerHTML = "Remove Low Accounts";
+  let count = 0;
+  for (let i = 0; i < accounts.length; i++) {
+    if (accounts[i] < 500) {
+      accounts.splice(i--, 1);
+      count++;
+    }
+  }
+  outputEl.innerHTML = "Number of accounts removed:" + " " + count;
 }
 
 function robinHood() {
@@ -134,6 +143,17 @@ function robinHood() {
   // accounts that have less than $1000.
   // Output how many accounts received money and 
   // how much each account received.
-
-  outputEl.innerHTML = "Robin Hood";
+  let totalM = 0;
+  let numberofA = 0;
+  for (let i = 0; i < accounts.length; i++) {
+    if (accounts[i] > 4000) {
+      totalM += 400;
+    }
+    if (accounts[i] < 1000) {
+      numberofA++;
+      accounts[i] += even;
+    }
+    let even = totalM / numberofA; 
+  }
+  outputEl.innerHTML = "Number of accounts that received money:" + " " + numberofA;
 }
