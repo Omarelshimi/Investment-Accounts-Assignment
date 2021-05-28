@@ -153,11 +153,13 @@ function robinHood() {
     if (accounts[i] < 1000) {
       numberofA++;
     }
-    let even = totalM / numberofA;
+  }
+  let even = totalM / numberofA;
+  for (let i = 0; i < accounts.length; i++) {
     if (accounts[i] < 1000) {
       accounts[i] += even;
     }
   }
-  outputEl.innerHTML = "Number of accounts that received money:" + " " + numberofA + "  " + "How much each account received:" + 
-  " " + even;
+  outputEl.innerHTML = "Number of accounts that received money:" + " " + numberofA + "  " + "How much each account received:" +
+    " " + even;
 }
